@@ -9,10 +9,10 @@
 "
 "======================================
 "
-"           Plugins (vim-plug)
+"	    Plugins (vim-plug)	
 "
-"======================================
-"
+"======================================	
+"	
 "====== Vim-Plug Auto Install ======
 "
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -25,7 +25,11 @@ endif
 call plug#begin('~/.vim/plugged')
 
 "   Themes
-Plug 'fneu/breezy' "breezy
+Plug 'fneu/breezy'
+" Plug 'ayu-theme/ayu-vim', {'frozen':1} " Custom format
+Plug 'DracoInferno/ayu-vim'
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 
 "   Powerline ("status" bar at the bottom)
 Plug 'itchyny/lightline.vim'
@@ -34,18 +38,28 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 "   Auto close surroundings
 Plug 'jiangmiao/auto-pairs'
+"   Syntax highligth
+Plug 'sheerun/vim-polyglot'
+"	Highlight same words
+Plug 'dominikduda/vim_current_word'
 
 call plug#end()
 
 
 "======================================
-"
-"           VIM Options
-"
-"======================================
+"	
+"	    VIM Options	
+"	
+"======================================	
 
 "===== Appearance =====
 
+set t_Co=256
+"set background=dark
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu 
+"autocmd vimenter * ++nested colorscheme gruvbox
 
 "===== Indentation =====
 set autoindent "Indentation inherits from prev lines
@@ -54,7 +68,8 @@ set shiftwidth=4
 set smartindent
 set smarttab
 set softtabstop=4
-"set tabstop=4 
+set tabstop=4 
+
 
 "===== Search =====
 set hlsearch 
@@ -68,7 +83,7 @@ set smartcase
 "===== Text Rendering =====
 set encoding=utf-8
 set linebreak "Avoid wrapping a line in the middle of a word
-set scrolloff=1 "The number of screen lines to keep above and below the cursor
+set scrolloff=5 "The number of screen lines to keep above and below the cursor
 syntax on
 filetype on
 
@@ -79,10 +94,7 @@ set number
 set relativenumber
 set noerrorbells
 set splitbelow splitright
-"Color Scheme
-set background=light
-colorscheme breezy
-set termguicolors
+
 "For tiny Cursor when in insert mode
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
@@ -106,9 +118,9 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 "======================================
 "
-"           Keymaps
+"	    Keymaps	
 "
-"======================================
+"======================================	
 
 "Split navigation
 nnoremap <C-J> <C-W><C-J>
