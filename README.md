@@ -5,5 +5,8 @@ My vimrc config
 
 
 # Details
+## .gitconfig
+Default location is `~/`
+
 ## Microsoft.PowerShell_profile.ps1
 Default location is `C:\Users\Name\Documents\PowerShell`
